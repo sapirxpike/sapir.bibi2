@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Assignment_9
+{% endblock %}
+
+{% block content  %}
+{{ super() }}
+    <h1>Assigment 10</h1>
+    <h2>Search: </h2>
+    <h3>Please inout user-name:</h3>
+    <form name="search" method="GET" action="assignment10">
+        <input name="username" type="text" id="username" placeholder="write here">
+        <input type="submit" value="search">
+    </form>
+    {% if search == True %}
+         {% if correctuser==false %}
+              <h2> incorrect user</h2>
+    {% elif correctuser==true %}
+            <span>
+                {% for y in users.values() %}
+                    {% for x in y %}
+                        {{ x }} - {{ y[x]}} <br>
+                    {% endfor %} <br>
+                {% endfor %}
+            </span>
+    {% endif %}
+{% endif %}
+
+
+    <h4>users:</h4>
+    <ol>
+         {% for users in users %}
+             <li>{{ users }}</li>
+         {% endfor %}
+    </ol>
+
+
+
+
+
+    <form action="/assignment10" method="GET">
+         product: <input name="product" type="text">
+         size: <input name="size" type="text">
+         <input type="submit">
+    </form>
+
+
+    {% if p_name %}
+         <h3> You picked a product: {{ p_name }} </h3>
+    {% endif %}
+    {% if p_size %}
+        <h3> you picked size: {{ p_size }} </h3>
+    {% endif %}
+
+{%if session['login'] == True%}
+    you are in
+{% else %}
+    <hr>
+
+
+  <h3> Insert </h3>
+        <form action = "/insert_user" method="post">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="last_name" placeholder="Last Name">
+            <input type="submit" value="Insert">
+        </form>
+        {% if session.insert %} <h5 style="color: red"> Your insert was successful! </h5> {% endif %}
+
+    <h1>Please Register: </h1>
+    <form name="register" method="POST" action="assignment10">
+        <input name="firstName" placeholder="First name">
+        <input name="lastName" placeholder="Last name">
+        <input name="email" type = email  placeholder="Email">
+        <input name="userName" placeholder="User name">
+        <input type="submit">
+    </form>
+{% endif %}
+
+    <h3> Deletion form </h3>
+        <form action="/delete_user" method="post">
+            <input type="email" name="email" placeholder="Email">
+            <br> are you sure you want to delete user?
+            <input type="submit" value="Delete">
+        </form>
+        {% if session.delete %} <h5 style="color: red"> delete success </h5> {% endif %}
+
+      <h3> Update </h3>
+        <form action = "/update_user" method="post">
+
+            <input type="email" name="old_email" placeholder="last - email">
+            <input type="email" name="new_email" placeholder="New - Email">
+            <input type="text" name="new_fname" placeholder="New - First Name">
+            <input type="text" name="new_lname" placeholder="New - Last Name">
+            <input type="submit" value="Update">
+        </form>
+        {% if session.update %} <h5 style="color: red"> success update </h5> {% endif %}
+
+
+
+{% endblock %}

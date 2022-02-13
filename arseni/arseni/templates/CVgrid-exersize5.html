@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+CV PAGE
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+{% set page_name='home' %}
+<h1>welcome to {{ page_name }} page</h1>
+<h3><a href="/aboutme"> For more info about me : click here </a> </h3>
+<h3><a href="/aboutme"></a></h3>
+    <H3  id="H11" class="header"> Exersize 5 - CV Grid </H3>
+    <div id="gridcontainer">
+        <div id="item1">name : Sapir Bibi <br> Email: safirxpike@hotmail.com <br> Phone number: +972-546-232610 <br> adress: 21 Baylis Menahem St. Haifa, Israel  <br> Date of birth: 09/30/1990 <br> id: 305159980 <br></div>
+        <div id="item2">Education</div>
+        <div id="item3">Key skills</div>
+        <div id="item4">Core Accomplishments</div>
+        <div id="item5">Militay Service</div>
+
+    </div>
+
+{% if name %}
+    <h3><a href="/CV-SAPIR-BIBI">MY C.V</a> </h3>
+{% else %}
+    <h3>please login </h3>
+{% endif %}
+
+{% endblock %}

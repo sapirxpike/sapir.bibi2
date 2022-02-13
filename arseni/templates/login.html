@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+login
+{% endblock %}
+
+{% block content  %}
+
+    {% if session.username %}
+         <h3>welcome back , {{ session.username }}</h3>
+    {% else %}
+        <h1>please login</h1>
+
+        <form action="/login" method="POST">
+             username: <input name="username" type="text">
+             password: <input name="password" type="password">
+            <input type="submit">
+        </form>
+    {% endif %}
+    {% if p_name %}
+         <h3> You picked a product: {{ p_name }} </h3>
+    {% endif %}
+    {% if p_size %}
+        <h3> you picked size: {{ p_size }} </h3>
+    {% endif %}
+
+
+{% endblock %}

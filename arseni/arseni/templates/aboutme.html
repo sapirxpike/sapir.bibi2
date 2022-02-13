@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+about me
+{% endblock %}
+
+{% block content  %}
+{{ super() }}
+<h1>The story of :  SAPIR BIBI</h1>
+<H2>My Email: bibis@post.bgu.ac.il</H2>
+<h3>Return to my new CV: <a href="/CV-SAPIR-BIBI"> my CV </a> </h3>
+
+<h4>Name: {{ profile.name | default('unknown', true) | upper }}</h4>
+<h4>University: {{ university | default('unspecified', true)}}</h4>
+<h4>Age: {{ age | default('unspecified', true) | int | abs}}</h4>
+<h4>Degrees:</h4>
+<ol>
+    {% for degrees in degrees %}
+    <li>{{ degrees }}</li>
+    {% endfor %}
+</ol>
+
+{% endblock %}

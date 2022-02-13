@@ -1,0 +1,10 @@
+<header>
+<a href="/aboutme">about me</a> | <a href="/CV-SAPIR-BIBI">my CV</a> | <a href="/assignment9">Assigment9</a> |
+    {% if session.username %}
+        <a href="/logout">log out</a>
+    {% else %}
+        <a href="/login">login</a>
+    {% endif %} |
+<a href="/forms">my forms</a> | <a href="/req_front">req_front</a> | <a href="/req_backend">req_backend</a>
+
+</header>

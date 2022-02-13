@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='CSS/CVgrid-exersize5.css') }}">
+
+</head>
+<body>
+{% include 'header.html' %}
+<hr>
+{% block content %}{% endblock %}
+<h5> this use of super</h5>
+{% include 'my_footer.html' %}
+<hr>
+</body>
+</html>
